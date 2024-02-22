@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://platformer.jpg" type="Texture" id=2]
+
+[node name="main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Play_button" type="Button" parent="."]
+margin_left = 370.0
+margin_top = 48.0
+margin_right = 677.0
+margin_bottom = 152.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit_button" type="Button" parent="."]
+margin_left = 745.0
+margin_top = 475.0
+margin_right = 1000.0
+margin_bottom = 562.0
+text = "quit like a coward"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="platformer" type="Sprite" parent="."]
+position = Vector2( 330.5, 299 )
+scale = Vector2( 1.04679, 1.65556 )
+z_index = -1
+texture = ExtResource( 2 )
+[connection signal="pressed" from="Play_button" to="." method="_on_Play_button_pressed"]
+[connection signal="pressed" from="Quit_button" to="." method="_on_Quit_button_pressed"]

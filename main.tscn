@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://platformer.jpg" type="Texture" id=2]
+[ext_resource path="res://dragon_desert.png" type="Texture" id=2]
+[ext_resource path="res://title.png" type="Texture" id=3]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Play_button" type="Button" parent="."]
 margin_left = 370.0
-margin_top = 48.0
+margin_top = 190.0
 margin_right = 677.0
-margin_bottom = 152.0
+margin_bottom = 294.0
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -21,15 +22,20 @@ margin_left = 745.0
 margin_top = 475.0
 margin_right = 1000.0
 margin_bottom = 562.0
-text = "quit like a coward"
+text = "quit game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="platformer" type="Sprite" parent="."]
-position = Vector2( 330.5, 299 )
-scale = Vector2( 1.04679, 1.65556 )
-z_index = -1
+[node name="dragon_desert" type="Sprite" parent="."]
+position = Vector2( 514.399, 320.099 )
+scale = Vector2( 2.16499, 2.01696 )
+z_index = -2
 texture = ExtResource( 2 )
+
+[node name="title" type="Sprite" parent="."]
+position = Vector2( 526.043, 59.0006 )
+scale = Vector2( 0.301041, 0.342376 )
+texture = ExtResource( 3 )
 [connection signal="pressed" from="Play_button" to="." method="_on_Play_button_pressed"]
 [connection signal="pressed" from="Quit_button" to="." method="_on_Quit_button_pressed"]

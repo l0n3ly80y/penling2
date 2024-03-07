@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5bnl0ilb2fw"
-path="res://.godot/imported/desert.png-a15755ebe28eb0752a8d88f49a0a7c97.ctex"
+uid="uid://8xveerx3hc3t"
+path="res://.godot/imported/penguin1.png-e876722704e76a96846574f370099b02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/desert.png"
-dest_files=["res://.godot/imported/desert.png-a15755ebe28eb0752a8d88f49a0a7c97.ctex"]
+source_file="res://penguin1.png"
+dest_files=["res://.godot/imported/penguin1.png-e876722704e76a96846574f370099b02.ctex"]
 
 [params]
 

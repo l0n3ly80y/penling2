@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://djufmrk6cnumy"]
+
+[ext_resource type="Texture2D" uid="uid://baueaq20gskws" path="res://Fruits.png" id="1_srxms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynuy6"]
+atlas = ExtResource("1_srxms")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcrq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynuy6")
+}],
+"loop": true,
+"name": &"apple",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhe7n"]
+radius = 22.0
+
+[node name="Collectable" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_qcrq0")
+animation = &"apple"
+frame_progress = 0.000327633
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lhe7n")

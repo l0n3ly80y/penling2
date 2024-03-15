@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh5moquomdhbi"
-path="res://.godot/imported/Normal Ocean Fish.png-d88423b1b5db3740226c071250364162.ctex"
+uid="uid://b10243xk5y4yr"
+path="res://.godot/imported/trophy.png-8a2a743fc220d2c0e8e268bfca083c30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fish/Normal Ocean Fish.png"
-dest_files=["res://.godot/imported/Normal Ocean Fish.png-d88423b1b5db3740226c071250364162.ctex"]
+source_file="res://trophy.png"
+dest_files=["res://.godot/imported/trophy.png-8a2a743fc220d2c0e8e268bfca083c30.ctex"]
 
 [params]
 

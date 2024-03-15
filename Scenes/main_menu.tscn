@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://dux2wl5l2c3bj"]
+
+[ext_resource type="Texture2D" uid="uid://cnjpwj5soxyyi" path="res://Seasonal Tilesets/4 - Winter World/Background parts/3 - Big_mountain_BG.png" id="1_rys27"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_wo6gb"]
+[ext_resource type="Texture2D" uid="uid://coo13xg1ijow5" path="res://logo.png" id="2_8uecx"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_wo6gb")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rys27")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -124.0
+offset_right = 171.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8uecx")
+
+[node name="level1" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -477.0
+offset_top = 135.0
+offset_right = -296.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 1 (A)"
+
+[node name="level2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 267.0
+offset_top = 136.0
+offset_right = 448.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 2 (B)"
+
+[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]

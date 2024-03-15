@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy7p1wohlaevd"
-path="res://.godot/imported/DEEP OCEAN FISH(SMALL).png-f9d6d074ca2550ad38c8776dfc5a3e76.ctex"
+uid="uid://coo13xg1ijow5"
+path="res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fish/DEEP OCEAN FISH(SMALL).png"
-dest_files=["res://.godot/imported/DEEP OCEAN FISH(SMALL).png-f9d6d074ca2550ad38c8776dfc5a3e76.ctex"]
+source_file="res://logo.png"
+dest_files=["res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -900.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var double = 0
 
 func _physics_process(delta):
 	#Animations
@@ -21,7 +21,14 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		sprite_2d.animation = "jump"
-		
+
+		if Input.is_action_just_pressed("jump") and double == 0 :
+			velocity.y = JUMP_VELOCITY
+			double = 1
+	
+	if is_on_floor() :
+		double = 0
+
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

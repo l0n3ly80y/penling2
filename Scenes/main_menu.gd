@@ -8,6 +8,8 @@ func _on_level_1_pressed():
 func _on_level_2_pressed():
 	get_tree().change_scene_to_file("res://Scenes/level2.tscn")
 
+func _on_level_3_pressed() :
+	get_tree().change_scene_to_file("res://Scenes/level3.tscn")
 
 func _process(_delta) :
 	if Input.is_action_just_pressed("jump") :

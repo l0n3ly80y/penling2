@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1gbtvj82b0q" path="res://Scenes/main_character.tscn" id="8_ga2q7"]
 [ext_resource type="PackedScene" uid="uid://djufmrk6cnumy" path="res://Scenes/collectable.tscn" id="9_xhr1e"]
 [ext_resource type="PackedScene" uid="uid://b7vui8lgkqf75" path="res://Scenes/finish.tscn" id="10_a8ywa"]
-[ext_resource type="PackedScene" uid="uid://dux2wl5l2c3bj" path="res://Scenes/main_menu.tscn" id="11_pnonc"]
+[ext_resource type="PackedScene" uid="uid://ywewvkfcpeq4" path="res://Scenes/level3.tscn" id="11_3f12i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqdq"]
 texture = ExtResource("3_p18k5")
@@ -537,7 +537,7 @@ position = Vector2(689, 358)
 [node name="Finish" parent="SceneObjects" instance=ExtResource("10_a8ywa")]
 position = Vector2(2664, 222)
 scale = Vector2(0.1, 0.1)
-target_level = ExtResource("11_pnonc")
+target_level = ExtResource("11_3f12i")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

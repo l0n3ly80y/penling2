@@ -10,9 +10,5 @@ func _ready():
 func _process(_delta):
 	pass
 
-
-func _on_collision_shape_2d_child_entered_tree(_node):
+func _on_body_entered(body):
 	pass
-
-func _on_player_hit() :
-	position.x += 200

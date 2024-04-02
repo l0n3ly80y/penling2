@@ -91,9 +91,10 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_7hwto")
 animation = &"on"
 autoplay = "on"
-frame_progress = 0.12184
+frame_progress = 0.0183035
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_112qf")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]

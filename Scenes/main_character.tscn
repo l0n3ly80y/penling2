@@ -89,6 +89,26 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("4_y305t")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_65o0m"]
+atlas = ExtResource("7_1bey2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apnax"]
+atlas = ExtResource("7_1bey2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soq2e"]
+atlas = ExtResource("7_1bey2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptss4"]
+atlas = ExtResource("7_1bey2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrwd1"]
+atlas = ExtResource("7_1bey2")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbbpb"]
 atlas = ExtResource("5_l4m2i")
 region = Rect2(0, 0, 32, 32)
@@ -160,26 +180,6 @@ region = Rect2(320, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1s1b"]
 atlas = ExtResource("5_tq4v3")
 region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65o0m"]
-atlas = ExtResource("7_1bey2")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apnax"]
-atlas = ExtResource("7_1bey2")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_soq2e"]
-atlas = ExtResource("7_1bey2")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptss4"]
-atlas = ExtResource("7_1bey2")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nrwd1"]
-atlas = ExtResource("7_1bey2")
-region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s4hxw"]
 animations = [{
@@ -265,6 +265,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_65o0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apnax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soq2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptss4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrwd1")
+}],
+"loop": true,
+"name": &"onwall",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wbbpb")
 }, {
 "duration": 1.0,
@@ -326,26 +346,6 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 24.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65o0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apnax")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_soq2e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ptss4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nrwd1")
-}],
-"loop": true,
-"name": &"walljump",
-"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juyeb"]
@@ -358,6 +358,7 @@ script = ExtResource("1_0lj0p")
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_s4hxw")
+animation = &"onwall"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

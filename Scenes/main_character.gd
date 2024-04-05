@@ -20,6 +20,9 @@ func spawn():
 	isSpawning = true
 	sprite_2d.play("appearing")
 
+func _ready() :
+	spawn()
+
 func _physics_process(delta):
 	#Animations
 	if not isHit and not isSpawning :

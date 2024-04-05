@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var double = 0
 var isHit = false
 var isSpawning = false
+var spawnCoordinates = Vector2(829,1592)
 
 func start_death():
 	isHit = true
@@ -18,6 +19,7 @@ func start_death():
 
 func spawn():
 	isSpawning = true
+	position = spawnCoordinates
 	sprite_2d.play("appearing")
 
 func _ready() :
@@ -67,8 +69,6 @@ func _physics_process(delta):
 				sprite_2d.play("desappearing")
 			if sprite_2d.animation == "desappearing" and sprite_2d.frame == 6 :
 				isHit = false
-				position.x = 837
-				position.y = 1564
 				spawn()
 		if isSpawning :
 			if sprite_2d.frame == 6 :

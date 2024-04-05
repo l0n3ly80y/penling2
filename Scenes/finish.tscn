@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7vui8lgkqf75"]
 
-[ext_resource type="Script" path="res://finish.gd" id="1_5e8dm"]
+[ext_resource type="Script" path="res://Scenes/finish.gd" id="1_5e8dm"]
 [ext_resource type="Texture2D" uid="uid://b10243xk5y4yr" path="res://trophy.png" id="1_nwlpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj5fb"]

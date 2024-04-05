@@ -787,6 +787,18 @@ position = Vector2(1995, 1231)
 [node name="Collectable2" parent="SceneObjects/Collectables group" instance=ExtResource("9_6xq0q")]
 position = Vector2(861, 631)
 
+[node name="Saw" parent="SceneObjects" instance=ExtResource("9_8tubn")]
+z_index = 1
+texture_filter = 1
+position = Vector2(951, 1255)
+scale = Vector2(3, 3)
+
+[node name="Finish" parent="SceneObjects" instance=ExtResource("10_h7pla")]
+z_index = 1
+texture_filter = 1
+position = Vector2(2038, 629)
+target_level = ExtResource("11_pd2ff")
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
@@ -807,15 +819,3 @@ theme_override_font_sizes/font_size = 30
 text = "Points : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Finish" parent="." instance=ExtResource("10_h7pla")]
-z_index = 1
-texture_filter = 1
-position = Vector2(2038, 629)
-target_level = ExtResource("11_pd2ff")
-
-[node name="Saw" parent="." instance=ExtResource("9_8tubn")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1493, 1122)
-scale = Vector2(3, 3)

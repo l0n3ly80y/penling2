@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ywewvkfcpeq4"]
+[gd_scene load_steps=11 format=3 uid="uid://ywewvkfcpeq4"]
 
 [ext_resource type="Script" path="res://Scenes/game_manager.gd" id="1_5y4yv"]
 [ext_resource type="Texture2D" uid="uid://dvn3xlbsu46m1" path="res://Assets/Background/Pink.png" id="2_3rwnp"]
 [ext_resource type="Texture2D" uid="uid://c07egxmyf8k8v" path="res://Assets/Terrain/Terrain (16x16).png" id="3_kotgw"]
 [ext_resource type="PackedScene" uid="uid://dp1gbtvj82b0q" path="res://Scenes/main_character.tscn" id="4_nfyh3"]
 [ext_resource type="PackedScene" uid="uid://djufmrk6cnumy" path="res://Scenes/collectable.tscn" id="5_volqf"]
+[ext_resource type="PackedScene" uid="uid://c1ifufa2k6ngh" path="res://Scenes/saw.tscn" id="6_1l3qj"]
 [ext_resource type="PackedScene" uid="uid://b7vui8lgkqf75" path="res://Scenes/finish.tscn" id="6_fa0bp"]
 [ext_resource type="PackedScene" uid="uid://dux2wl5l2c3bj" path="res://Scenes/main_menu.tscn" id="7_i205l"]
 
@@ -630,6 +631,24 @@ position = Vector2(1995, 1231)
 [node name="Collectable2" parent="SceneObjects/Collectables group" instance=ExtResource("5_volqf")]
 position = Vector2(861, 631)
 
+[node name="Saw" parent="SceneObjects" instance=ExtResource("6_1l3qj")]
+z_index = 1
+texture_filter = 1
+position = Vector2(865, 1029)
+scale = Vector2(3, 3)
+
+[node name="Saw2" parent="SceneObjects" instance=ExtResource("6_1l3qj")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1936, 864)
+scale = Vector2(3, 3)
+
+[node name="Finish" parent="SceneObjects" instance=ExtResource("6_fa0bp")]
+z_index = 1
+texture_filter = 1
+position = Vector2(2038, 629)
+target_level = ExtResource("7_i205l")
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
@@ -650,9 +669,3 @@ theme_override_font_sizes/font_size = 30
 text = "Points : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Finish" parent="." instance=ExtResource("6_fa0bp")]
-z_index = 1
-texture_filter = 1
-position = Vector2(2038, 629)
-target_level = ExtResource("7_i205l")

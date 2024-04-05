@@ -817,5 +817,5 @@ target_level = ExtResource("11_pd2ff")
 [node name="Saw" parent="." instance=ExtResource("9_8tubn")]
 z_index = 1
 texture_filter = 1
-position = Vector2(1417, 1558)
+position = Vector2(1493, 1122)
 scale = Vector2(3, 3)

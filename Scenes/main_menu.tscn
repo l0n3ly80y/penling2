@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dux2wl5l2c3bj"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_wo6gb"]
+[ext_resource type="Texture2D" uid="uid://c873aobj6c75e" path="res://Assets/Background/Green.png" id="2_5kwgr"]
+[ext_resource type="Texture2D" uid="uid://cpddimib0ty2a" path="res://Assets/Background/Yellow.png" id="2_yf3a7"]
+[ext_resource type="Texture2D" uid="uid://w2xnqm1audb5" path="res://Assets/Background/Brown.png" id="3_po58g"]
+[ext_resource type="Texture2D" uid="uid://dvn3xlbsu46m1" path="res://Assets/Background/Pink.png" id="4_bq33o"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_wo6gb")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yf3a7")
+stretch_mode = 1
+
+[node name="level1" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -49.0
+offset_right = -253.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 1 (A)"
+icon = ExtResource("2_5kwgr")
+
+[node name="level2" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -49.0
+offset_right = 107.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 2 (B)"
+icon = ExtResource("3_po58g")
+
+[node name="level3" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 244.0
+offset_top = -49.0
+offset_right = 467.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 3 (X)"
+icon = ExtResource("4_bq33o")
+
+[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]

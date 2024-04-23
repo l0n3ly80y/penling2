@@ -13,6 +13,8 @@ var doubleJumping = 0
 var dying = false
 var isSpawning = false
 var spawnCoordinates = Vector2(829,1592)
+
+
 func jump_player(speed):
 	"""
 	IN:speed, vitesse du saut
@@ -44,25 +46,28 @@ func push_player(direction,speed,max_speed):
 				velocity.x+=speed
 		else:
 			if velocity.x<max_speed:
-				velocity.x+=speed                
+				velocity.x+=speed
+		  
 func start_death():
 	"""
 	Démarre l'annimation de mort
 	"""
 	dying = true
 	playerSprite.play("hit")
+
 func set_spawn(pos_x,pos_y):
 	"""met de nouvelle coordonnees de spawn"""
 	spawnCoordinates.x=pos_x
 	spawnCoordinates.y=pos_y
-	
+
 func spawn():
 	"""
-	spawn le joueur aux coordonnées de spawn
+	Spawn le joueur aux coordonnées de spawn
 	"""
 	isSpawning = true
 	position = spawnCoordinates
 	playerSprite.play("appearing")
+
 
 func _ready() :
 	"""

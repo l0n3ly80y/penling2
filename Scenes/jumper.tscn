@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn0vvkmhauclo"]
+
+[ext_resource type="Texture2D" uid="uid://dml1h80d87lpe" path="res://Assets/Interactives/jumper.png" id="1_4chys"]
+[ext_resource type="Script" path="res://Scenes/jumper.gd" id="1_fx5wa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jxyr5"]
+radius = 3.0
+height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwtyb"]
+atlas = ExtResource("1_4chys")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1slsh"]
+atlas = ExtResource("1_4chys")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxa7b"]
+atlas = ExtResource("1_4chys")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi00u"]
+atlas = ExtResource("1_4chys")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjlk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwtyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1slsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxa7b")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi00u")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpfre"]
+size = Vector2(31, 21)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fx5wa")
+
+[node name="triggerbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggerbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jxyr5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pjlk7")
+animation = &"off"
+autoplay = "off"
+
+[node name="hitbox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-0.5, 13.5)
+shape = SubResource("RectangleShape2D_qpfre")
+
+[connection signal="body_entered" from="triggerbox" to="." method="_on_triggerbox_body_entered"]

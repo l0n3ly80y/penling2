@@ -10,15 +10,42 @@ const JUMP_VELOCITY = -900.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doubleJumping = 0
-var isHit = false
+var dying = false
 var isSpawning = false
 var spawnCoordinates = Vector2(829,1592)
+func jump_player(speed):
+	"""
+	IN:speed, vitesse du saut
+	Propulse le joueur sur l'axe y de speed
+	"""
+	print(velocity.y)
+	velocity.y=speed
 
+	print("received")
+	print(velocity.y)
+func push_player(direction,speed,max_speed):
+	"""
+	Pousse le joueur dans la direction ('y' ou 'x'), de la speed, jusqu'à ce que soit atteint la max_speed
+	"""
+	if direction=='y':
+		if max_speed<0:
+			if velocity.y>max_speed:
+				velocity.y+=speed
+		else:
+			if velocity.y<max_speed:
+				velocity.y+=speed
+	else:
+		if max_speed<0:
+			if velocity.x>max_speed:
+				velocity.x+=speed
+		else:
+			if velocity.x<max_speed:
+				velocity.x+=speed
 func start_death():
 	"""
 	Démarre l'annimation de mort
 	"""
-	isHit = true
+	dying = true
 	playerSprite.play("hit")
 
 func spawn():
@@ -37,7 +64,7 @@ func _ready() :
 
 func _physics_process(delta):
 	#Animations
-	if not isHit and not isSpawning :
+	if not dying and not isSpawning :
 		if (velocity.x > 1 || velocity.x < -1) :
 			playerSprite.animation = "walk"
 		else :
@@ -73,19 +100,21 @@ func _physics_process(delta):
 			playerSprite.flip_h =  true 
 		if (velocity.x > 1):
 			playerSprite.flip_h = false 
+		if (position.y>2700 and velocity.y>1000):#mort par chute
+			start_death()
 
 	
 	else :
-		if isHit :
+		if dying :
 			#Fait disparaitre et réapparaite le joueur
 			if playerSprite.frame == 6 :
 				playerSprite.play("desappearing")
 			if playerSprite.animation == "desappearing" and playerSprite.frame == 6 :
-				isHit = false
+				dying = false
 				spawn()
 		if isSpawning :
 			#Immobilise le joueur le temps se son apparition
 			if playerSprite.frame == 6 :
 				velocity = Vector2(0,0)
 				isSpawning = false
-
+		

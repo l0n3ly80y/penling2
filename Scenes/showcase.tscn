@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bm3387584imum"]
+[gd_scene load_steps=19 format=3 uid="uid://bm3387584imum"]
 
 [ext_resource type="Script" path="res://Scenes/game_manager.gd" id="1_i87ej"]
 [ext_resource type="Texture2D" uid="uid://c5y76m4r1wgc8" path="res://Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="2_0m87r"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://c1ifufa2k6ngh" path="res://Scenes/saw.tscn" id="7_kd0na"]
 [ext_resource type="PackedScene" uid="uid://b7vui8lgkqf75" path="res://Scenes/finish.tscn" id="8_55uvj"]
 [ext_resource type="PackedScene" uid="uid://bn0vvkmhauclo" path="res://Scenes/jumper.tscn" id="11_46er7"]
+[ext_resource type="PackedScene" uid="uid://cr0816bb8gs4k" path="res://Scenes/pusher.tscn" id="12_7w4xl"]
+[ext_resource type="PackedScene" uid="uid://c0wewbhp7m4ky" path="res://Scenes/checkpoint.tscn" id="13_vxpdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyltg"]
 texture = ExtResource("4_ibooy")
@@ -517,7 +519,13 @@ position_smoothing_speed = 7.0
 position = Vector2(1506, 1592)
 
 [node name="Collectable2" parent="SceneObjects/Collectables group" instance=ExtResource("6_iogtx")]
-position = Vector2(1037, 1604)
+position = Vector2(1186, 874)
+
+[node name="Collectable3" parent="SceneObjects/Collectables group" instance=ExtResource("6_iogtx")]
+position = Vector2(881, 1233)
+
+[node name="Collectable4" parent="SceneObjects/Collectables group" instance=ExtResource("6_iogtx")]
+position = Vector2(2199, 1296)
 
 [node name="Saw" parent="SceneObjects" instance=ExtResource("7_kd0na")]
 z_index = 1
@@ -532,6 +540,15 @@ position = Vector2(1960, 1588)
 
 [node name="jumper" parent="SceneObjects" instance=ExtResource("11_46er7")]
 position = Vector2(1842, 1560)
+scale = Vector2(3, 3)
+
+[node name="pusher" parent="SceneObjects" instance=ExtResource("12_7w4xl")]
+z_index = 9
+position = Vector2(1186, 1584)
+scale = Vector2(3, 3)
+
+[node name="checkpoint" parent="SceneObjects" instance=ExtResource("13_vxpdx")]
+position = Vector2(1637, 1585)
 scale = Vector2(3, 3)
 
 [node name="UI" type="CanvasLayer" parent="."]

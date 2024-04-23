@@ -18,11 +18,8 @@ func jump_player(speed):
 	IN:speed, vitesse du saut
 	Propulse le joueur sur l'axe y de speed
 	"""
-	print(velocity.y)
 	velocity.y=speed
 
-	print("received")
-	print(velocity.y)
 func push_player(direction,speed,max_speed):
 	"""
 	Pousse le joueur dans la direction ('y' ou 'x'), de la speed, jusqu'à ce que soit atteint la max_speed
@@ -30,27 +27,38 @@ func push_player(direction,speed,max_speed):
 	if direction=='y':
 		if max_speed<0:
 			if velocity.y>max_speed:
-				velocity.y+=speed
+				#si tu cherhces un bug il est là je pense
+				if velocity.y>0:
+					if velocity.y>800:#au cas où il va trop vite vers le bas, a equilibrer
+						velocity.y+=-250
+					velocity.y+=speed*((-max_speed)/(-max_speed-velocity.y))#calcul pour adapter la vitesse de propulsion relativement à la vitesse max
+				else:
+					velocity.y+=speed*((-max_speed)/(-max_speed-velocity.y))
 		else:
 			if velocity.y<max_speed:
-				velocity.y+=speed
+				#il est ptt ici aussi 
+				velocity.y+=speed*(max_speed/(max_speed-velocity.y))#calcul pour " 
 	else:
-		if max_speed<0:
+		if max_speed<0:#a ajuster differement car pas de gravité
 			if velocity.x>max_speed:
 				velocity.x+=speed
 		else:
 			if velocity.x<max_speed:
-				velocity.x+=speed
+				velocity.x+=speed                
 func start_death():
 	"""
 	Démarre l'annimation de mort
 	"""
 	dying = true
 	playerSprite.play("hit")
-
+func set_spawn(pos_x,pos_y):
+	"""met de nouvelle coordonnees de spawn"""
+	spawnCoordinates.x=pos_x
+	spawnCoordinates.y=pos_y
+	
 func spawn():
 	"""
-	Luciens remplis ça stp
+	spawn le joueur aux coordonnées de spawn
 	"""
 	isSpawning = true
 	position = spawnCoordinates

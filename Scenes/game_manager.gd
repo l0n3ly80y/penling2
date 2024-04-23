@@ -9,5 +9,5 @@ func add_point() :
 	Ajoute un point au joueur et modifie le texte du label
 	"""
 	points += 1
-	print(points)
+	print("[game manager] points :"+str(points))
 	points_label.text = "Points : " + str(points)

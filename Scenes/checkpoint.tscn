@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0wewbhp7m4ky"]
+
+[ext_resource type="Script" path="res://Scenes/checkpoint.gd" id="1_o8eet"]
+[ext_resource type="Texture2D" uid="uid://co0cyuuwicgip" path="res://Assets/Interactives/checkpoint.png" id="2_2ann8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7kmg"]
+radius = 14.0357
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfh8j"]
+atlas = ExtResource("2_2ann8")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dye2"]
+atlas = ExtResource("2_2ann8")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh4v2"]
+atlas = ExtResource("2_2ann8")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwjcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfh8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dye2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh4v2")
+}],
+"loop": true,
+"name": &"activation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh4v2")
+}],
+"loop": true,
+"name": &"checked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfh8j")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
+
+[node name="checkpoint" type="Node2D"]
+script = ExtResource("1_o8eet")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_d7kmg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jwjcm")
+animation = &"off"
+autoplay = "off"
+frame_progress = 0.747777
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

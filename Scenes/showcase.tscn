@@ -528,7 +528,6 @@ scale = Vector2(3, 3)
 z_index = 1
 texture_filter = 1
 position = Vector2(1960, 1588)
-target_level = null
 
 [node name="UI" type="CanvasLayer" parent="."]
 

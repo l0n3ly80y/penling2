@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b10243xk5y4yr" path="res://trophy.png" id="1_nwlpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj5fb"]
-size = Vector2(440, 360)
+size = Vector2(280, 360)
 
 [node name="Finish" type="Area2D"]
 scale = Vector2(0.25, 0.25)

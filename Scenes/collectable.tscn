@@ -179,7 +179,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhe7n"]
-radius = 22.0
+radius = 20.0
 
 [node name="Collectable" type="Area2D"]
 script = ExtResource("1_2occm")
@@ -188,7 +188,7 @@ script = ExtResource("1_2occm")
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_qcrq0")
-animation = &"disappearing"
+animation = &"apples"
 autoplay = "apples"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

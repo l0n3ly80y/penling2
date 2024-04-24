@@ -14,6 +14,5 @@ func _process(delta):
 		if animated_sprite_2d.frame==2:
 			animated_sprite_2d.play("off")	
 func _on_triggerbox_body_entered(body):
-	print("test")
 	character_body_2d.jump_player(-1700) # Replace with function body.
 	animated_sprite_2d.play('activated')

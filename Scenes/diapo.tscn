@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdfnp0exjm1uw"]
+
+[ext_resource type="Texture2D" uid="uid://uedjir3s23ax" path="res://Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_3rxi0"]
+[ext_resource type="Texture2D" uid="uid://dwyexqakggjg6" path="res://Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="2_3w51k"]
+
+[node name="diapo" type="Node2D"]
+rotation = -0.00815194
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 921.0
+offset_bottom = 642.0
+texture = ExtResource("1_3rxi0")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 141.0
+offset_top = 27.0
+offset_right = 698.0
+offset_bottom = 469.0
+texture = ExtResource("2_3w51k")

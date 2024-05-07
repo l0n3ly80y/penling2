@@ -121,8 +121,8 @@ func _physics_process(delta):
 		if dying :
 			#Fait disparaitre et réapparaite le joueur
 			if playerSprite.frame == 6 :
-				playerSprite.play("desappearing")
-			if playerSprite.animation == "desappearing" and playerSprite.frame == 6 :
+				playerSprite.play("disappearing")
+			if playerSprite.animation == "disappearing" and playerSprite.frame == 6 :
 				dying = false
 				spawn()
 		if isSpawning :

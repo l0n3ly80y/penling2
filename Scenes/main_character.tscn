@@ -290,7 +290,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fc8ep")
 }],
 "loop": true,
-"name": &"desappearing",
+"name": &"disappearing",
 "speed": 10.0
 }, {
 "frames": [{
@@ -468,7 +468,7 @@ script = ExtResource("1_0lj0p")
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_s4hxw")
-animation = &"idle"
+animation = &"disappearing"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

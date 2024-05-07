@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqycpb5or0vrg"]
+[gd_scene load_steps=19 format=3 uid="uid://cqycpb5or0vrg"]
 
 [ext_resource type="Texture2D" uid="uid://cbwe6n6tm5etq" path="res://Assets/Traps/Spike Head/Idle.png" id="1_os5yi"]
 [ext_resource type="Script" path="res://Scenes/spike_head.gd" id="1_qlu2p"]
@@ -90,10 +90,13 @@ animations = [{
 size = Vector2(37, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swvls"]
-size = Vector2(20, 363)
+size = Vector2(20, 323)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gwct"]
-size = Vector2(372, 20)
+size = Vector2(218, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hvsa"]
+size = Vector2(45, 45)
 
 [node name="spike_head" type="Node2D"]
 script = ExtResource("1_qlu2p")
@@ -105,6 +108,7 @@ animation = &"blink"
 autoplay = "idle"
 
 [node name="main_body" type="Area2D" parent="."]
+texture_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main_body"]
 position = Vector2(0.5, 0.5)
@@ -113,7 +117,7 @@ shape = SubResource("RectangleShape2D_bfq18")
 [node name="detect_zone_y" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_zone_y"]
-position = Vector2(0, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_swvls")
 
 [node name="detect_zone_x" type="Area2D" parent="."]
@@ -121,6 +125,13 @@ shape = SubResource("RectangleShape2D_swvls")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_zone_x"]
 shape = SubResource("RectangleShape2D_7gwct")
 
+[node name="ground_check" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_check"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_1hvsa")
+
 [connection signal="body_entered" from="main_body" to="." method="_on_main_body_body_entered"]
 [connection signal="body_entered" from="detect_zone_y" to="." method="_on_detect_zone_y_body_entered"]
 [connection signal="body_entered" from="detect_zone_x" to="." method="_on_detect_zone_x_body_entered"]
+[connection signal="body_entered" from="ground_check" to="." method="_on_ground_check_body_entered"]

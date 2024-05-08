@@ -12,28 +12,30 @@ var y_entered = false
 var x_entered = false
 var is_activated = false
 var has_collided = false
-
+var speed = 0
+var player_pos = -1
 
 func _process(delta):
 	if is_activated and not has_collided :
+		speed += 7*delta
 		if y_entered == true :
-			if player.position.y >= position.y :
-				position.y += 500*delta
-			else :
-				position.y -= 500*delta
+			if player_pos == 0 :
+				position.y += exp(speed)*delta
+			elif player_pos == 1 :
+				position.y -= exp(speed)*delta
 		if x_entered == true :
-			if player.position.x >= position.x :
-				position.x += 500*delta
-			else :
-				position.x -= 500*delta
+			if player_pos == 2 :
+				position.x += exp(speed)*delta
+			elif player_pos == 3 :
+				position.x -= exp(speed)*delta
 		if position == starting_pos :
 			is_activated = false
+			player_pos = -1
 	elif has_collided :
 		if position == starting_pos :
 			has_collided = false
 			x_entered = false
 			y_entered = false
-			is_activated = false
 		else :
 			position = position.move_toward(starting_pos, 250*delta)
 
@@ -41,6 +43,7 @@ func _process(delta):
 func _on_main_body_body_entered(body):
 	if (body.name == "CharacterBody2D") :
 		has_collided = true
+		is_activated = false
 		player.start_death()
 
 func _on_detect_zone_y_body_entered(body):
@@ -49,6 +52,10 @@ func _on_detect_zone_y_body_entered(body):
 			y_entered = true
 			x_entered = false
 			is_activated = true
+			if player.position.y >= position.y :
+				player_pos = 0
+			else :
+				player_pos = 1
 
 func _on_detect_zone_x_body_entered(body):
 	if not is_activated :
@@ -56,9 +63,15 @@ func _on_detect_zone_x_body_entered(body):
 			x_entered = true
 			y_entered = false
 			is_activated = true
+			if player.position.x >= position.x :
+				player_pos = 2
+			else :
+				player_pos = 3
 
 func _on_ground_check_body_entered(body):
 	if (body.name != "CharacterBody2D") :
+		is_activated = false
+		speed = 0
 		has_collided = true
 		x_entered = false
 		y_entered = false

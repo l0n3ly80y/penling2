@@ -14,20 +14,26 @@ var is_activated = false
 var has_collided = false
 var speed = 0
 var player_pos = -1
+var augmented_speed = 0
+
+func augmenter_vitesse(speed) :
+	return 10/(1+exp(-speed+10))
+
 
 func _process(delta):
 	if is_activated and not has_collided :
 		speed += 7*delta
+		augmented_speed = augmenter_vitesse(speed)*delta
 		if y_entered == true :
 			if player_pos == 0 :
-				position.y += exp(speed)*delta
+				position.y += augmented_speed
 			elif player_pos == 1 :
-				position.y -= exp(speed)*delta
+				position.y -= augmented_speed
 		if x_entered == true :
 			if player_pos == 2 :
-				position.x += exp(speed)*delta
+				position.x += augmented_speed
 			elif player_pos == 3 :
-				position.x -= exp(speed)*delta
+				position.x -= augmented_speed
 		if position == starting_pos :
 			is_activated = false
 			player_pos = -1

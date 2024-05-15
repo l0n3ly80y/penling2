@@ -801,7 +801,7 @@ position = Vector2(2038, 629)
 target_level = ExtResource("11_pd2ff")
 
 [node name="spike_head" parent="SceneObjects" instance=ExtResource("10_u2k3w")]
-position = Vector2(1836, 1197)
+position = Vector2(1836, 1154)
 scale = Vector2(3, 3)
 
 [node name="UI" type="CanvasLayer" parent="."]

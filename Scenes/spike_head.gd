@@ -23,7 +23,7 @@ func augmenter_vitesse(speed) :
 func _process(delta):
 	if is_activated and not has_collided :
 		speed += 7*delta
-		augmented_speed = augmenter_vitesse(speed)*delta
+		augmented_speed = augmenter_vitesse(speed)
 		if y_entered == true :
 			if player_pos == 0 :
 				position.y += augmented_speed

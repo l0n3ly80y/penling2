@@ -39,6 +39,7 @@ func _process(delta):
 			relative_pos = -1
 	elif has_collided :
 		if position == starting_pos :
+			speed = 0
 			has_collided = false
 			x_entered = false
 			y_entered = false

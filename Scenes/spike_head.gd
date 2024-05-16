@@ -13,7 +13,7 @@ var x_entered = false
 var is_activated = false
 var has_collided = false
 var speed = 0
-var player_pos = -1
+var relative_pos = -1
 var augmented_speed = 0
 
 func augmenter_vitesse(speed) :
@@ -23,20 +23,20 @@ func augmenter_vitesse(speed) :
 func _process(delta):
 	if is_activated and not has_collided :
 		speed += 7*delta
-		augmented_speed = augmenter_vitesse(speed)
+		augmented_speed = augmenter_vitesse(speed)*delta*100
 		if y_entered == true :
-			if player_pos == 0 :
+			if relative_pos == 0 :
 				position.y += augmented_speed
-			elif player_pos == 1 :
+			elif relative_pos == 1 :
 				position.y -= augmented_speed
 		if x_entered == true :
-			if player_pos == 2 :
+			if relative_pos == 2 :
 				position.x += augmented_speed
-			elif player_pos == 3 :
+			elif relative_pos == 3 :
 				position.x -= augmented_speed
 		if position == starting_pos :
 			is_activated = false
-			player_pos = -1
+			relative_pos = -1
 	elif has_collided :
 		if position == starting_pos :
 			has_collided = false
@@ -59,9 +59,9 @@ func _on_detect_zone_y_body_entered(body):
 			x_entered = false
 			is_activated = true
 			if player.position.y >= position.y :
-				player_pos = 0
+				relative_pos = 0
 			else :
-				player_pos = 1
+				relative_pos = 1
 
 func _on_detect_zone_x_body_entered(body):
 	if not is_activated :
@@ -70,9 +70,9 @@ func _on_detect_zone_x_body_entered(body):
 			y_entered = false
 			is_activated = true
 			if player.position.x >= position.x :
-				player_pos = 2
+				relative_pos = 2
 			else :
-				player_pos = 3
+				relative_pos = 3
 
 func _on_ground_check_body_entered(body):
 	if (body.name != "CharacterBody2D") :

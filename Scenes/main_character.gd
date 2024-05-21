@@ -8,10 +8,11 @@ const JUMP_VELOCITY = -900.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var doubleJumping = 0
+var doubleJumping = false
 var isHit = false
 var isSpawning = false
 var spawnCoordinates = Vector2(829,1592)
+var rollingAnimation = false
 
 func start_death():
 	isHit = true
@@ -28,22 +29,32 @@ func _ready() :
 func _physics_process(delta):
 	#Animations
 	if not isHit and not isSpawning :
-		if (velocity.x > 1 || velocity.x < -1) :
+		if doubleJumping :
+			if rollingAnimation :
+				sprite_2d.animation = "roll"
+
+			if sprite_2d.animation == "roll" and sprite_2d.frame == 5 :
+				rollingAnimation = false
+
+		if (velocity.x > 1 || velocity.x < -1) and is_on_floor() :
 			sprite_2d.animation = "walk"
 		else :
-			sprite_2d.animation = "idle"
+			if is_on_floor() :
+				sprite_2d.animation = "idle"
 			
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
-			sprite_2d.animation = "jump"
+			if rollingAnimation == false :
+				sprite_2d.animation = "jump"
 
-			if Input.is_action_just_pressed("jump") and doubleJumping == 0 :
+			if Input.is_action_just_pressed("jump") and not doubleJumping :
 				velocity.y = JUMP_VELOCITY
-				doubleJumping = 1
-			
+				rollingAnimation = true
+				doubleJumping = true
+
 		if is_on_floor() :
-			doubleJumping = 0
+			doubleJumping = false
 
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():

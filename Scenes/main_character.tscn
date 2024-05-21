@@ -459,7 +459,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juyeb"]
-size = Vector2(58, 67)
+size = Vector2(44, 67)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_0lj0p")
@@ -468,10 +468,9 @@ script = ExtResource("1_0lj0p")
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_s4hxw")
-animation = &"roll"
+animation = &"onwall"
 autoplay = "idle"
-frame_progress = 0.991472
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6.5)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_juyeb")

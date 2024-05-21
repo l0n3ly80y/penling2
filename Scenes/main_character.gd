@@ -29,6 +29,10 @@ func _ready() :
 func _physics_process(delta):
 	#Animations
 	if not isHit and not isSpawning :
+		if is_on_wall() :
+			if velocity.y >= 0 :
+				velocity.y += 0.5 * gravity * delta
+
 		if doubleJumping :
 			if rollingAnimation :
 				sprite_2d.animation = "roll"
@@ -41,9 +45,9 @@ func _physics_process(delta):
 		else :
 			if is_on_floor() :
 				sprite_2d.animation = "idle"
-			
+
 		# Add the gravity.
-		if not is_on_floor():
+		if not is_on_floor() and not is_on_wall() :
 			velocity.y += gravity * delta
 			if rollingAnimation == false :
 				sprite_2d.animation = "jump"

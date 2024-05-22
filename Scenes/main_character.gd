@@ -13,7 +13,8 @@ var doubleJumping = 0
 var dying = false
 var isSpawning = false
 var spawnCoordinates = Vector2(829,1592)
-
+var rollingAnimation = false
+var endurance = 1000
 
 func jump_player(speed):
 	"""
@@ -75,40 +76,66 @@ func _ready() :
 	"""
 	spawn()
 
+
 func _physics_process(delta):
 	#Animations
+	#game_manager.affiche_endurance()
 	if not dying and not isSpawning :
-		if (velocity.x > 1 || velocity.x < -1) :
+		if is_on_wall() :
+			doubleJumping = false
+			rollingAnimation = false
+			playerSprite.animation = "onwall"
+			if velocity.y > 0 :
+				if velocity.y < 250 :
+					velocity.y += 0.1 * gravity * delta
+				elif velocity.y > 250 :
+					velocity.y -= 0.1 * gravity * delta
+			else :
+				velocity.y += 1.5 * gravity * delta
+
+
+		if rollingAnimation :
+			playerSprite.animation = "roll"
+
+		if playerSprite.animation == "roll" and playerSprite.frame == 5 :
+			rollingAnimation = false
+
+		if (velocity.x > 1 || velocity.x < -1) and is_on_floor() and not is_on_wall() :
 			playerSprite.animation = "walk"
 		else :
-			playerSprite.animation = "idle"
-			
-		#Gravité et sauts
-		if not is_on_floor():
-			velocity.y += gravity * delta
-			playerSprite.animation = "jump"
+			if is_on_floor() and not is_on_wall() :
+				playerSprite.animation = "idle"
 
-			if Input.is_action_just_pressed("jump") and doubleJumping == 0 :
+		# Add the gravity.
+		if not is_on_floor() and not is_on_wall() :
+			velocity.y += gravity * delta
+			if rollingAnimation == false :
+				playerSprite.animation = "jump"
+
+			if Input.is_action_just_pressed("jump") and not doubleJumping and endurance > 0 :
 				velocity.y = JUMP_VELOCITY
-				doubleJumping = 1
-			
+				rollingAnimation = true
+				doubleJumping = true
+				endurance -= 250
+
 		if is_on_floor() :
-			doubleJumping = 0
+			doubleJumping = false
+			endurance = 1000
 
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
-		#Déplacements latéraux
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("left", "right")
 		if direction :
 			velocity.x = direction * SPEED
-		else:
+		else :
 			velocity.x = move_toward(velocity.x, 0, 2000*delta)
 
 		move_and_slide()
 
-		#Orientation du sprite
 		if (velocity.x < -1):
 			playerSprite.flip_h =  true 
 		if (velocity.x > 1):

@@ -7,6 +7,9 @@ const JUMP_VELOCITY = -900.0
 #Variables
 
 @onready var playerSprite = $AnimatedSprite2D
+@onready var double_jump_sound = $DoubleJumpSound
+@onready var spawn_sound = $SpawnSound
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doubleJumping = 0
@@ -113,6 +116,7 @@ func _physics_process(delta):
 				playerSprite.animation = "jump"
 
 			if Input.is_action_just_pressed("jump") and not doubleJumping and endurance > 0 :
+				double_jump_sound.play()
 				velocity.y = JUMP_VELOCITY
 				rollingAnimation = true
 				doubleJumping = true
@@ -147,6 +151,8 @@ func _physics_process(delta):
 	else :
 		if dying :
 			#Fait disparaitre et réapparaite le joueur
+			if playerSprite.animation == "hit" and playerSprite.frame == 0 :
+				spawn_sound.play()
 			if playerSprite.frame == 6 :
 				playerSprite.play("disappearing")
 			if playerSprite.animation == "disappearing" and playerSprite.frame == 6 :

@@ -144,7 +144,7 @@ func _physics_process(delta):
 			playerSprite.flip_h =  true 
 		if (velocity.x > 1):
 			playerSprite.flip_h = false 
-		if (position.y>2700 and velocity.y>1000):#mort par chute
+		if (position.y>2800):#mort par chute
 			start_death()
 
 	

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1gbtvj82b0q" path="res://Scenes/main_character.tscn" id="8_ga2q7"]
 [ext_resource type="PackedScene" uid="uid://djufmrk6cnumy" path="res://Scenes/collectable.tscn" id="9_xhr1e"]
 [ext_resource type="PackedScene" uid="uid://b7vui8lgkqf75" path="res://Scenes/finish.tscn" id="10_a8ywa"]
-[ext_resource type="PackedScene" uid="uid://ywewvkfcpeq4" path="res://Scenes/level3.tscn" id="11_3f12i"]
+[ext_resource type="PackedScene" uid="uid://ywewvkfcpeq4" path="res://Scenes/old_level3.tscn" id="11_3f12i"]
 [ext_resource type="PackedScene" uid="uid://c1ifufa2k6ngh" path="res://Scenes/saw.tscn" id="13_xgboa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqdq"]

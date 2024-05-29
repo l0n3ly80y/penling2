@@ -19,8 +19,10 @@ var augmented_speed = 0
 func augmenter_vitesse(speed) :
 	return 10/(1+exp(-speed+10))
 
-
+func _ready():
+	print("test")
 func _process(delta):
+	print("test")
 	if is_activated and not has_collided :
 		speed += 7*delta
 		augmented_speed = augmenter_vitesse(speed)*delta*110
@@ -54,6 +56,7 @@ func _on_main_body_body_entered(body):
 		player.start_death()
 
 func _on_detect_zone_y_body_entered(body):
+	print("test")
 	if not is_activated :
 		if (body.name == "CharacterBody2D") :
 			y_entered = true
@@ -65,6 +68,7 @@ func _on_detect_zone_y_body_entered(body):
 				relative_pos = 1
 
 func _on_detect_zone_x_body_entered(body):
+	print("test")
 	if not is_activated :
 		if (body.name == "CharacterBody2D") :
 			x_entered = true

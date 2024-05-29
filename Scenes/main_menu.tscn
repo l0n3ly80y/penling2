@@ -1,75 +1,213 @@
-[gd_scene load_steps=6 format=3 uid="uid://dux2wl5l2c3bj"]
+[gd_scene load_steps=24 format=3 uid="uid://dhe4cf4flncb2"]
 
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_wo6gb"]
-[ext_resource type="Texture2D" uid="uid://c873aobj6c75e" path="res://Assets/Background/Green.png" id="2_5kwgr"]
-[ext_resource type="Texture2D" uid="uid://cpddimib0ty2a" path="res://Assets/Background/Yellow.png" id="2_yf3a7"]
-[ext_resource type="Texture2D" uid="uid://w2xnqm1audb5" path="res://Assets/Background/Brown.png" id="3_po58g"]
-[ext_resource type="Texture2D" uid="uid://dvn3xlbsu46m1" path="res://Assets/Background/Pink.png" id="4_bq33o"]
+[ext_resource type="Texture2D" uid="uid://uedjir3s23ax" path="res://Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_fxadg"]
+[ext_resource type="Texture2D" uid="uid://brbb3i8314i5p" path="res://Assets/Main Characters/Ninja Frog/Idle (32x32).png" id="2_5gtas"]
+[ext_resource type="Script" path="res://Scenes/character_animation.gd" id="3_8fpoi"]
+[ext_resource type="Texture2D" uid="uid://b1w4avjmc5owr" path="res://Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="3_q5su5"]
+[ext_resource type="FontFile" uid="uid://dnd1m4ml7be8a" path="res://nokiafc22.ttf" id="4_dnel6"]
+[ext_resource type="Texture2D" uid="uid://bcthx15ej1cmo" path="res://Assets/Menu/Buttons/Play.png" id="5_2gw8c"]
+[ext_resource type="Script" path="res://Scenes/showcase_button.gd" id="6_02cmg"]
+[ext_resource type="Texture2D" uid="uid://djicr4k4unqlr" path="res://Assets/Menu/Levels/01.png" id="6_3oye1"]
+[ext_resource type="Script" path="res://Scenes/level_1_button.gd" id="8_kia0a"]
 
-[node name="MainMenu" type="Node"]
-script = ExtResource("1_wo6gb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_momdh"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(0, 0, 32, 32)
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb1ix"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g81ib"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8c2v"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0sdy"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0kun"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpee3"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe8fb"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wg71"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4mj1"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62mfm"]
+atlas = ExtResource("2_5gtas")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hadx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_momdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb1ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g81ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8c2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0sdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0kun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpee3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe8fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wg71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4mj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62mfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctaal"]
+texture = ExtResource("3_q5su5")
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+11:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+11:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+11:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+4:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4gup2"]
+sources/0 = SubResource("TileSetAtlasSource_ctaal")
+
+[node name="main_menu" type="Node2D"]
+
+[node name="sky" type="TextureRect" parent="."]
+offset_left = -779.0
+offset_top = -396.0
+offset_right = 2269.0
+offset_bottom = 1368.0
+texture = ExtResource("1_fxadg")
+
+[node name="character_animation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_yf3a7")
-stretch_mode = 1
+position = Vector2(987, 384)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_hadx3")
+autoplay = "default"
+script = ExtResource("3_8fpoi")
 
-[node name="level1" type="Button" parent="."]
+[node name="menu_env" type="TileMap" parent="."]
 texture_filter = 1
-anchors_preset = 8
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_4gup2")
+format = 2
+layer_0/tile_data = PackedInt32Array(589843, 196608, 1, 655379, 196608, 2, 589844, 262144, 1, 655380, 262144, 2, 589845, 327680, 1, 655381, 327680, 2, 720915, 196608, 6, 720916, 262144, 6, 720917, 327680, 6)
+
+[node name="menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 476.0
+offset_bottom = 644.0
+
+[node name="title" type="Label" parent="menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = -49.0
-offset_right = -253.0
-offset_bottom = 51.0
+offset_left = -122.0
+offset_top = 36.0
+offset_right = 126.0
+offset_bottom = 128.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Level 1 (A)"
-icon = ExtResource("2_5kwgr")
+theme_override_fonts/font = ExtResource("4_dnel6")
+theme_override_font_sizes/font_size = 45
+text = "FREG"
+horizontal_alignment = 1
 
-[node name="level2" type="Button" parent="."]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -49.0
-offset_right = 107.0
-offset_bottom = 51.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Level 2 (B)"
-icon = ExtResource("3_po58g")
+[node name="showcase_button" type="Button" parent="menu"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 240.0
+offset_right = 326.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("4_dnel6")
+text = "Showcase"
+icon = ExtResource("5_2gw8c")
+expand_icon = true
+script = ExtResource("6_02cmg")
 
-[node name="level3" type="Button" parent="."]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 244.0
-offset_top = -49.0
-offset_right = 467.0
-offset_bottom = 51.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Level 3 (X)"
-icon = ExtResource("4_bq33o")
+[node name="level_1_button" type="Button" parent="menu"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 300.0
+offset_right = 326.0
+offset_bottom = 343.0
+theme_override_fonts/font = ExtResource("4_dnel6")
+text = "level 1"
+icon = ExtResource("6_3oye1")
+expand_icon = true
+script = ExtResource("8_kia0a")
 
-[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="menu/showcase_button" to="menu/showcase_button" method="_on_pressed"]
+[connection signal="pressed" from="menu/level_1_button" to="menu/showcase_button" method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="menu/level_1_button" to="menu/level_1_button" method="_on_pressed"]
